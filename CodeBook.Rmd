@@ -1,0 +1,21 @@
+---
+title: "Getting and Cleaning Data Project CodeBook"
+author: "Huanqi Zhu"
+date: "September 27, 2015"
+output: html_document
+---
+
+
+
+This file describes the variables, the data, and transformations or work that we performed to clean up the data.  
+
+The *run_analysis.R* performs the cleaning process in the following steps:  
+1.  Load X_train.txt, y_train.txt and subject_train.txt from the *UCI HAR Dataset* folder and store them in *trainData*, *trainLabel* and *trainSubject* respectively. Load X_test.txt, y_test.txt and subjext_test.txt from the *UCI HAR Dataset* folder and store them in *testData*, *testLabel* and *testSubject* respectively.  
+2.  Use *rbind* to combine *trainData*, *testData* into *combineData*, combine *trainLabel*, *testLabel* into *combineLabel*, combine *trainSubject*, *testSubject* into *combineSubject*.  
+3.  Load feature.txt from *UCI HAR Dataset* folder, store in *features* variable. Locate the indices of features which measure the mean and standard deviation, and we get a subset of the *combineData* with the 66 corresponding columns.  
+4.  Load activity_labels.txt from *UCI HAR Dataset* folder, and store in *activity* variable.  
+5.  Transform the values of *combineLabel* according to the *activity* data frame.  
+6.  Use *cbind* to combine *combineSubject*, *combineLabel* and *combineData* by column and store it in *cleanedData* variable.   
+7.  Write the *cleanedData* to *merged_data.txt* in the currect working directory.
+8.  Create a second, independent tidy data set with the average of each variable for each activity and each subject. We have 30 unique subjects and 6 unique activities, which result in a 180 combinations.bwe calculate the mean of each measurement with the corresponding combination. Eventually, we get a 180x68 data frame.  
+9.  Write the *result* to *subject_mean_data.txt* in the currect working directory.

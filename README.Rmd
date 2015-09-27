@@ -1,0 +1,29 @@
+---
+title: "Getting and Cleaning Data project"
+author: "Huanqi Zhu"
+date: "September 27, 2015"
+output: html_document
+---
+
+One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained: 
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
+Here are the data for the project: 
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+
+ You should create one R script called run_analysis.R that does the following.   
+1.  Merges the training and the test sets to create one data set.  
+2.  Extracts only the measurements on the mean and standard deviation for each measurement.   
+3.  Uses descriptive activity names to name the activities in the data set  
+4.  Appropriately labels the data set with descriptive variable names.   
+5.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.  
+
+Here is how the *run_analysis.R* script works 
+1.  Download the data from the above website, unzip the data. The folder is *UCI HAR Dataset*. Make sure the *run_analysis.R* and the folder *UCI HAR Dataset* are in the current working directory.  
+2.  Use the *source(run_analysis.R)* command in R Console to run the program.  
+3.  Two output files are generated in the current working directory.  
+    . *merged_data.txt*, it contains a cleaned data frame with subject, label, and data. 10299 by 68 dimension.  
+    . *subject_mean_data.txt*, it contains a tidy data set with the average of each variable for each activity and each subject. 180 by 68 dimension.   
+4.  Use *data <- read.table("subject_mean_data.txt")* in R Console to load the data for further analysis. 
